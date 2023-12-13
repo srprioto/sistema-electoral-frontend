@@ -13,7 +13,8 @@ export const ModalConfirmarVoto = ({ modal, setModal, candidato, elector, setTab
         try {
             const response:any = await post(RESULTADOS, {
                 padronId: elector.id,
-                candidatoId: candidato.id
+                candidatoId: candidato.id,
+                nivel: elector.nivel
             });
             if (response.success) {
                 setLoading(false);
