@@ -1,13 +1,7 @@
 import { BiChevronRight } from 'react-icons/bi';
 import LogoColegio from '../../../assets/images/logo-cole.png';
 
-export const Login = ({ setTabb }:any) => {
-
-
-    const handlerLogin = () => { 
-        setTabb(2)
-    }
-
+export const Login = ({ handlerLogin, data, handlerOnChange }:any) => {
 
     return (
         <div className="login h100">
@@ -16,19 +10,25 @@ export const Login = ({ setTabb }:any) => {
 
                 <div className="input-login">
 
-                        <div className="titulo-login">
-                            <h1>Elecciones Municipales</h1>
-                            <h1>Escolares 2024</h1>
-                        </div>
-                        
-                        <p className="desc-login">Ingresa tu DNI</p>
+                    <div className="titulo-login">
+                        <h1>Elecciones Municipales</h1>
+                        <h1>Escolares 2024</h1>
+                    </div>
+                    
+                    <p className="desc-login">Ingresa tu DNI</p>
 
-                        <input className="mb20" type="number" name="" id="" />
+                    <input className="mb20" type="number" name="dni" id="" onChange={handlerOnChange} />
 
-                        <button
+                    {
+                        data.dni.length === 8
+                        ? <button
                             onClick={handlerLogin}
                             className="btn btn-warning mb20"
                         >Acceder <BiChevronRight /> </button>
+                        : <button
+                            className="btn btn-disable mb20"
+                        >Acceder <BiChevronRight /> </button>
+                    }
 
                 </div>
 
@@ -47,12 +47,8 @@ export const Login = ({ setTabb }:any) => {
 
                 </div>
 
-                
-
             </div>
             
-
-
         </div>
     )
 }

@@ -100,57 +100,102 @@
     background: url("../images/background-votar.jpg") no-repeat center center;
     position: relative;
     .box-cedula-electoral{
-        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 83vh;
         width: 100%;
-        margin: 0 auto;
-        .titulo-cedula{
-            margin-top: 20px;
-            text-align: center;
-            h2{
-                margin: 0;
-            }
-            h4{
-                text-transform: uppercase;
-                margin: 7px 0 0 0;
-                color: $warning;
-                font-weight: 800;
-            }
-        }
-        .lista-candidatos{
-            box-sizing: border-box;
-            padding-left: 20px;
-            .item-lista-candidatos{
-                display: grid;
-                grid-template-columns: 1fr 3fr 3fr;
-                gap: 10px;
-                align-items: center;
-                justify-items: start;
-                margin-bottom: 10px;
-                .img-candidato{  
-                    border-radius: 50%;
-                    overflow: hidden;
-                    width: 90px;
-                    height: 90px;
-                    display: block;
-                    img{
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
+        
+        .box-in-cedula-electoral{
+            width: 100%;
+            .titulo-cedula{
+                margin-top: 20px;
+                text-align: center;
+                h2{
+                    margin: 0;
                 }
-                .nombre-candidato, .nombre-partido{  
-                    display: inline-block;
-                    color: $success;
+                h4{
                     text-transform: uppercase;
-                    p{
-                        text-transform: initial;
-                        color: $warning;
-                    }
+                    margin: 7px 0 0 0;
+                    color: $warning;
+                    font-weight: 800;
                 }
-
             }
-        }
+            .lista-candidatos{
+                box-sizing: border-box;
+                padding-left: 20px;
+                
+                .item-lista-candidatos{
+                    display: grid;
+                    grid-template-columns: 1fr 3fr 3fr;
+                    gap: 10px;
+                    align-items: center;
+                    justify-items: start;
+                    margin: 10px 10px 0px 10px;
+                    box-sizing: border-box;
+                    padding: 8px;
+                    border: 2px solid transparent;
+                    .img-candidato{  
+                        border-radius: 50%;
+                        overflow: hidden;
+                        width: 90px;
+                        height: 90px;
+                        display: block;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .nombre-candidato, .nombre-partido{  
+                        display: inline-block;
+                        color: $success;
+                        text-transform: uppercase;
+                        p{
+                            text-transform: initial;
+                            color: $warning;
+                        }
+                    }
+    
+                }
+                .candidato-select{
+                    border-radius: 50px;
+                    border: 2px solid #ea2f8c;
+                    box-shadow: 3px 3px 6px 0px #ea2f8c70;
+                }
+            }
+            
+        }    
 
+    }
+
+    .box-cedula-instrucciones{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        border-left: 1px solid #d6daff;
+        padding: 0px 0px 0px 20px;
+        .cedula-descripcion{
+            text-align: center;
+            width: 100%;
+            h3{
+                text-align: center;
+                margin-top: 40px;
+            }
+            p{
+                margin: 10px 0 0 0;
+            }
+            // .nombre-elector{
+            //     strong{
+            //         text-transform: lowercase;
+            //     }
+            // }
+        }
+        .logo-cole-cedula{
+            width: 90px;
+            opacity: 60%;
+            margin: 0 0 30px 0;
+        }
         .btn-votar {
             width: 100%;
             display: flex;
@@ -159,31 +204,25 @@
             font-size: 20px;
             justify-content: center;
             align-items: center;
-        }
-
-    }
-
-    .box-cedula-instrucciones{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 20px;
-        border-left: 1px solid #d6daff;
-        .cedula-descripcion{
-            text-align: center;
-            h3{
-                text-align: center;
-                margin-top: 40px;
+            align-self: flex-end;
+            .btn-confirmar-votar{
+                width: 100%;
             }
+        }
+        .plancha-electoral{
+            position: relative;
             p{
                 margin: 0;
             }
-        }
-        .logo-cole-cedula{
-            width: 90px;
-            opacity: 70%;
-            margin-top: 50px;
+            .icon-borrar-candidato{
+                position: absolute;
+                top: -25px;
+                right: 5px;
+                cursor: pointer;
+                svg{
+                    font-size: 30px
+                }
+            }
         }
 
     }
@@ -191,6 +230,9 @@
     .modal-confirmar{
         .info-modal{
             text-align: center;
+            p, h3{
+                margin: 0 0 0 0;
+            }
         }
         .botones-modal-confirmar{
             margin-top: 20px;
@@ -216,9 +258,10 @@
     .box-finalizacion{
         text-align: center;
         .desc-finalizacion{
-            .fin-nombre-partido{
-                color: $warning;
+            .info-finalizacion-voto{
+                color: #ea2f8c;
                 margin: 20px 0 0 0;
+                font-size: 15px;
             }
             p{
                 margin: 40px 0px 10px 0;

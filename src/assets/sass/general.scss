@@ -30,6 +30,13 @@ p{
 
 // general
 
+.warning {
+    color: $warning;
+}
+.success {
+    color: $success;
+}
+
 .w100{
     width: 100%;
 }
@@ -59,12 +66,23 @@ p{
     padding: 20px;
 }
 
+.center{
+    text-align: center;
+}
+
 .grid-21{
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 20px;
 }
 
+.pointer{
+    cursor: pointer;
+}
+
+ul { 
+    list-style-image: url('../icons/marcador.svg'); 
+}
 
 // forms
 
@@ -110,29 +128,26 @@ input[type=number]::-webkit-outer-spin-button {
     border: 1px solid $success;
 }
 
+.btn-disable{
+    background-color: rgba(136, 136, 136, 0.7607843137);
+    border: 1px solid #3d3d3d;
+    cursor: no-drop;
+}
 
 // scroll
 
 .scroll{
-    color: var(--blanco);
-    background-color: var(--fondo);
-    font-family: var(--roboto);
-    height: calc(100vh - 45%);
-    font-size: 18px;
-    font-weight: 300;
-    font-style: normal;
-    /* position: relative;
-    overflow: hidden; */
     overflow-y: scroll;
+    max-height: calc(100vh - 46%);
 }
 
 .scroll::-webkit-scrollbar {
-    background-color: #fff;
+    background-color: transparent;
     width: 9px;
 }
 
 .scroll::-webkit-scrollbar-thumb {
-    background-color: #fff;
+    background-color: transparent;
     border-radius: 4px;
     transition-delay: 1s;
 }
@@ -165,6 +180,7 @@ input[type=number]::-webkit-outer-spin-button {
         z-index: 5;
     }
     .body-modal{
+        width: 450px;
         position: relative;
         background-color: #ffffff;
         box-sizing: border-box;
@@ -173,6 +189,12 @@ input[type=number]::-webkit-outer-spin-button {
         z-index: 6;
         box-shadow: 1px 5px 8px 4px rgb(81 83 112 / 41%);
         overflow: hidden;
+        .modal-confirmar {
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
     }
 }
 
