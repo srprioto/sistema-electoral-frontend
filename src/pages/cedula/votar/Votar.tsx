@@ -13,11 +13,11 @@ export const Votar = ({ setTabb, handlerBack, elector, candidato, setCandidato }
     const [loading, setLoading] = useState<boolean>(false);
     const [data, setData] = useState<Array<any>>([]);
     
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    /* eslint-disable */
     useEffect(() => {
         getListaCandidatos();
     }, [])
+    /* eslint-enable */
 
 
     const handlerConfirmVoto = () => { 
