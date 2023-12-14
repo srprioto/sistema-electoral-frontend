@@ -1,7 +1,15 @@
 import { BiChevronRight } from 'react-icons/bi';
 import LogoColegio from '../../../assets/images/logo-cole.png';
+import { Loading } from '../../../components/Loading';
 
-export const Login = ({ handlerLogin, data, handlerOnChange }:any) => {
+interface login {
+    handlerLogin:Function;
+    data:any;
+    handlerOnChange:Function;
+    loading:boolean;
+}
+
+export const Login = ({ handlerLogin, data, handlerOnChange, loading }:login) => {
 
     return (
         <div className="login h100">
@@ -15,20 +23,36 @@ export const Login = ({ handlerLogin, data, handlerOnChange }:any) => {
                         <h1>Escolares 2024</h1>
                     </div>
                     
-                    <p className="desc-login">Ingresa tu DNI</p>
-
-                    <input className="mb20" type="number" name="dni" id="" onChange={handlerOnChange} />
-
                     {
-                        data.dni.length === 8
-                        ? <button
-                            onClick={handlerLogin}
-                            className="btn btn-warning mb20"
-                        >Acceder <BiChevronRight /> </button>
-                        : <button
-                            className="btn btn-disable mb20"
-                        >Acceder <BiChevronRight /> </button>
+                        loading
+                        ? <div className="box-login-loading">
+                            <Loading />
+                        </div>
+                        : <div className='box-content-login'>
+                            <p className="desc-login">Ingresa tu DNI</p>
+                            <input 
+                                className="mb20" 
+                                type="number" 
+                                name="dni" 
+                                id="" 
+                                onChange={(e:any) => handlerOnChange(e)} 
+                            />
+                            {
+                                data.dni.length === 8
+                                ? <button
+                                    onClick={() => { handlerLogin() }}
+                                    className="btn btn-warning mb20"
+                                >Acceder <BiChevronRight /> </button>
+                                : <button
+                                    className="btn btn-disable mb20"
+                                >Acceder <BiChevronRight /> </button>
+                            }
+                        </div>
                     }
+
+                    
+
+  
 
                 </div>
 

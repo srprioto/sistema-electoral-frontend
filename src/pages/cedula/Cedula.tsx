@@ -4,6 +4,7 @@ import { Votar } from "./votar/Votar";
 import { Finalizacion } from "./finalizacion/Finalizacion";
 import { post } from "../../resources/fetch";
 import { LOGIN } from "../../resources/routes";
+import { Loading } from "../../components/Loading";
 
 export const Cedula = () => {
 
@@ -51,18 +52,20 @@ export const Cedula = () => {
     return (
         <div className="cedula h100">
             {
+                tabb === 1 
+                && <Login 
+                    handlerLogin={handlerLogin} 
+                    data={data}
+                    handlerOnChange={handlerOnChange}
+                    loading={loading}
+                /> 
+            }
+            {
                 loading
-                ? <div>cargando</div>
-                : <>
-                    { 
-                        tabb === 1 
-                        && <Login 
-                            handlerLogin={handlerLogin} 
-                            data={data}
-                            setData={setData}
-                            handlerOnChange={handlerOnChange}
-                        /> 
-                    }
+                ? <div className="loading-pages">
+                    <Loading />
+                </div>
+                : <>   
                     { 
                         tabb === 2 
                         && <Votar 

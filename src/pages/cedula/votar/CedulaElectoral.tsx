@@ -1,4 +1,5 @@
 
+import { Loading } from '../../../components/Loading';
 import { CandidatoItem } from './CandidatoItem';
 
 export const CedulaElectoral = ({ data, loading, candidato, setCandidato, nivel }:any) => {
@@ -28,8 +29,10 @@ export const CedulaElectoral = ({ data, loading, candidato, setCandidato, nivel 
                     </div>
 
                     {
-                        data.length <= 0
-                        ? <div>cargando</div>
+                        (data.length <= 0)
+                        ? <div>
+                            <Loading />
+                        </div>
                         : (
                             loading 
                             ? <div>algo salio mal</div>

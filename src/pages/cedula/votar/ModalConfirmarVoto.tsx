@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Modal } from "../../../components/modals/Modal"
 import { post } from "../../../resources/fetch";
 import { RESULTADOS } from "../../../resources/routes";
+import { Loading } from "../../../components/Loading";
 
 export const ModalConfirmarVoto = ({ modal, setModal, candidato, elector, setTabb }:any) => {
 
@@ -35,13 +36,10 @@ export const ModalConfirmarVoto = ({ modal, setModal, candidato, elector, setTab
             modal={modal}
             setModal={setModal}
         >
-
             {
                 loading
                 ? <div className="modal-confirmar">
-                    <div className="center">
-                        cargando
-                    </div>
+                    <Loading />
                 </div> : <div className="modal-confirmar">
                     {
                         candiatoSelect
