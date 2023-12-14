@@ -14,6 +14,7 @@ export const Votar = ({ setTabb, handlerBack, elector, candidato, setCandidato }
     const [data, setData] = useState<Array<any>>([]);
     
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         getListaCandidatos();
     }, [])
