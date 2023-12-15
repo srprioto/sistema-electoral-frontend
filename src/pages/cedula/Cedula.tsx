@@ -58,6 +58,7 @@ export const Cedula = () => {
                     data={data}
                     handlerOnChange={handlerOnChange}
                     loading={loading}
+                    response={response}
                 /> 
             }
             {

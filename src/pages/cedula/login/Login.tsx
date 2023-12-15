@@ -7,9 +7,15 @@ interface login {
     data:any;
     handlerOnChange:Function;
     loading:boolean;
+    response:any;
 }
 
-export const Login = ({ handlerLogin, data, handlerOnChange, loading }:login) => {
+export const Login = ({ handlerLogin, data, handlerOnChange, loading, response }:login) => {
+
+    console.log(response.state);
+
+    // 2 - voto listo
+    // 3 - no existe
 
     return (
         <div className="login h100">
@@ -50,9 +56,10 @@ export const Login = ({ handlerLogin, data, handlerOnChange, loading }:login) =>
                         </div>
                     }
 
-                    
-
-  
+                    <div className='texto-validacion'>
+                        { response.state === 2 && <h5>Tu voto ya fue registrado</h5> }
+                        { response.state === 3 && <h5>Tu DNI no forma parte del padron</h5> }
+                    </div>
 
                 </div>
 

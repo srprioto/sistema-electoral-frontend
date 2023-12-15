@@ -336,6 +336,15 @@ input[type=number]::-webkit-outer-spin-button {
                 justify-content: center;
                 align-items: center;
             }
+            .texto-validacion{
+                position: absolute;
+                bottom: 70px;
+                width: 100%;
+                text-align: center;
+                h5{
+                    color: $warning;
+                }
+            }
 
         }
     }
@@ -552,6 +561,29 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
 }
 
+// resultados
+.resultados{
+    .titulo-resultados {
+        text-align: center;
+        margin-top: 40px;
+    }
+    .select-resultados {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 350px;
+    }
+    .chart-resultados{
+        display: flex;
+        height: 70vh;
+        align-items: center;
+        justify-content: center;
+        .recharts-wrapper{
+            
+        }
+    }
+}
+
 @media(max-width:999px){
     .app-in{
         display: none;
@@ -563,7 +595,7 @@ input[type=number]::-webkit-outer-spin-button {
         box-sizing: border-box;
         border-radius: 20px 20px;
         text-align: center;
-        .responsive img {
+        img {
             width: 80px;
             opacity: 60%;
         }
